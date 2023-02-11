@@ -11,7 +11,7 @@ function App(){
 
   const register = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("http://localhost:3000/register", {
       email: email,
       username: username,
       password: password,
@@ -28,7 +28,7 @@ function App(){
 
   const login = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3001/login", {
+    Axios.post("http://localhost:3000/login", {
       username: username,
       password: password,
     }).then((response) => {
@@ -42,20 +42,10 @@ function App(){
 
   return(
     <div className="container">
+      
       <div className="loginForm">
         <form>
-          <h4>Login Here</h4>
-          <label htmlFor="username">Username*</label>
-          <input className="textInput" type="text" name="username" onChange={(e) => {setUsername(e.target.value)}} placeholder="Enter your Username" required />
-          <label htmlFor="password">Password*</label>
-          <input className="textInput" type="password" name="password" onChange={(e) => {setPassword(e.target.value)}} placeholder="Enter your Password" required />
-          <input className="button" type="submit" onClick={login} value="Login" />
-          <h1 style={{color: 'red', fontSize: '15px', textAlign: 'center', marginTop: '20px'}}>{loginStatus}</h1>
-        </form>
-      </div>
-      <div className="loginForm">
-        <form>
-          <h4>Register Here</h4>
+          <h4 style={{color: 'black', fontSize: '30px', textAlign: 'center', marginTop: '20px'}}>REGISTER</h4>
           <label htmlFor="email">Email Address*</label>
           <input className="textInput" type="text" name="email" onChange={(e) => {setEmail(e.target.value)}} placeholder="Enter your Email Address" required />
           <label htmlFor="username">Username*</label>
@@ -64,6 +54,17 @@ function App(){
           <input className="textInput" type="password" name="password" onChange={(e) => {setPassword(e.target.value)}} placeholder="Enter your Password" required />
           <input className="button" type="submit" onClick={register} value="Create an account" />
           <h1 style={{fontSize: '15px', textAlign: 'center', marginTop: '20px'}}>{registerStatus}</h1>
+        </form>
+      </div>
+      <div className="loginForm">
+        <form>
+        <h4 style={{color: 'black', fontSize: '30px', textAlign: 'center', marginTop: '20px'}}>LOGIN</h4>
+          <label htmlFor="username">Username*</label>
+          <input className="textInput" type="text" name="username" onChange={(e) => {setUsername(e.target.value)}} placeholder="Enter your Username" required />
+          <label htmlFor="password">Password*</label>
+          <input className="textInput" type="password" name="password" onChange={(e) => {setPassword(e.target.value)}} placeholder="Enter your Password" required />
+          <input className="button" type="submit" onClick={login} value="Login" />
+          <h1 style={{color: 'green', fontSize: '15px', textAlign: 'center', marginTop: '20px'}}>{loginStatus}</h1>
         </form>
       </div>
     </div>

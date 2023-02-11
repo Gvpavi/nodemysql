@@ -19,12 +19,12 @@ app.post('/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    con.query("INSERT INTO users (email, username, password) VALUES (?, ?, ?)", [email, username, password], 
+    con.query("INSERT INTO users (email, username, password) VALUES (?,?,?)", [email, username, password], 
         (err, result) => {
             if(result){
                 res.send(result);
             }else{
-                res.send({message: "ENTER CORRECT ASKED DETAILS!"})
+                res.send({message: "ENTER THE CORRECT DETAILS!"})
             }
         }
     )
@@ -48,6 +48,6 @@ app.post("/login", (req, res) => {
     )
 })
 
-app.listen(3001, () => {
-    console.log("running backend server");
+app.listen(3000, () => {
+    console.log("Backend server connected successfully");
 })
